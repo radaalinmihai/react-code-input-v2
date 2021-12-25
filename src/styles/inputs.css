@@ -1,0 +1,31 @@
+.react-code-input {
+	border: 1px solid #414042;
+	width: max-content;
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	justify-content: flex-start;
+	border-radius: 6px;
+	overflow: hidden;
+	padding: .2rem .6rem;
+	color: #231F20;
+
+	&--separator {
+		font-size: 1.3rem;
+	}
+
+	&--container {
+
+
+		&-digit {
+			border-style: none;
+			outline: none;
+			font-size: 1.3rem;
+			max-width: calc(10px + 1.3rem);
+
+			&::placeholder {
+				color: #6D6E71;
+			}
+		}
+	}
+}
