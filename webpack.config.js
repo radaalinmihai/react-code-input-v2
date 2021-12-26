@@ -7,7 +7,7 @@ module.exports = {
 		rules: [
 			{
 				test: /\.tsx?$/,
-				use: 'ts-loader',
+				use: "ts-loader",
 				exclude: /node_modules/,
 			},
 			{
@@ -28,10 +28,10 @@ module.exports = {
 					},
 					"postcss-loader"
 				]
-		}],
+			}],
 	},
 	resolve: {
-		extensions: ['.tsx', '.ts', '.js'],
+		extensions: [".tsx", ".ts", ".js"],
 	},
 	devServer: {
 		port: 3000,
@@ -55,4 +55,4 @@ module.exports = {
 		minimize: true
 	},
 	plugins: [new MiniCssExtractPlugin()]
-}
+};

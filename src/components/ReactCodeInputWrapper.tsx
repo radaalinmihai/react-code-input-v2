@@ -1,7 +1,12 @@
-import {FC} from "react";
+import {FC, FunctionComponent} from "react";
+import clsx from "clsx";
 
-const ReactCodeInputWrapper: FC = ({children}) => {
-	return <div className='react-code-input'>{children}</div>;
+interface IProps {
+	disabled?: boolean;
+}
+
+const ReactCodeInputWrapper: FunctionComponent<IProps> = ({children, disabled}) => {
+	return <div className={clsx('react-code-input', disabled && 'react-code-input--disabled')}>{children}</div>;
 }
 
 export default ReactCodeInputWrapper;

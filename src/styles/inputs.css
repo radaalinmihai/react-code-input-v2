@@ -10,6 +10,17 @@
 	padding: .2rem .6rem;
 	color: #231F20;
 
+	&--disabled {
+		background-color: #D1D3D4;
+		pointer-events: none;
+		cursor: not-allowed;
+	}
+
+	&--label {
+		font-size: .8rem;
+		color: #231F20;
+	}
+
 	&--separator {
 		font-size: 1.3rem;
 	}
@@ -25,6 +36,12 @@
 
 			&::placeholder {
 				color: #6D6E71;
+			}
+
+			&:disabled {
+				background-color: #D1D3D4;
+				pointer-events: none;
+				cursor: not-allowed;
 			}
 		}
 	}
