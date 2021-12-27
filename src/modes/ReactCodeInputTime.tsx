@@ -1,58 +1,64 @@
 import Input from "../components/Input";
-import React, {Fragment, FunctionComponent, useCallback, useEffect, useState} from "react";
+import React, {Fragment, FunctionComponent, useCallback, useState} from "react";
 import ReactCodeInputWrapper from "../components/ReactCodeInputWrapper";
 import {IInputValue} from "../interfaces/InputTypes";
-import {addTrailingZero} from "../utilities/helpers";
-import {MAX_TIME_FIELDS} from "../utilities/constants";
+import {addTrailingZero, createEmptyTimes} from "../utilities/helpers";
+import {IInputTimeFields, InputTimeTypes} from "../interfaces/ICodeInputTime";
+import ReactCodeInputTimeHints from "../components/ReactCodeInputTimeHints";
 
 interface IProps {
 	label?: string;
-	fieldsLength: number;
+	fields?: IInputTimeFields;
 	disabled?: boolean;
 }
 
-const ReactCodeInputTime: FunctionComponent<IProps> = ({label = '', fieldsLength, disabled}) => {
-	const [values, setValues] = useState<IInputValue[]>([]);
+const ReactCodeInputTime: FunctionComponent<IProps> = ({
+	                                                       label = '', disabled, fields = {
+		[InputTimeTypes.DAYS]: true,
+		[InputTimeTypes.HOURS]: true,
+		[InputTimeTypes.MINUTES]: true,
+		[InputTimeTypes.SECONDS]: false,
+		[InputTimeTypes.MILLISECONDS]: false,
+	}
+                                                       }) => {
+	const [values, setValues] = useState<IInputValue[]>(createEmptyTimes(fields));
 	const handleSetValues = useCallback((idx: number) => (value: string) => {
 		setValues((prevValues) => prevValues.map((val, index) => {
 			if(idx === index) {
-				if(!(parseInt(value) < val.max)) {
-					return val;
+				if(parseInt(value) > val.max) {
+					return {
+						...val,
+						value: addTrailingZero(val.max.toString())
+					}
 				}
 				return {
 					...val,
-					value: addTrailingZero(value),
+					value,
 				}
 			}
 			return val;
 		}));
 	}, []);
 
-	useEffect(() => {
-		const maxFields = fieldsLength > MAX_TIME_FIELDS ? MAX_TIME_FIELDS : fieldsLength;
-		if(fieldsLength > MAX_TIME_FIELDS) {
-			console.warn(`Fields are longer than the maximum allowed, which is ${MAX_TIME_FIELDS}. Fields have been reduced to the maximum allowed`);
-		}
-		setValues(Array(maxFields).fill({
-			value: '',
-			max: 0
-		}));
-		console.log(maxFields);
-	}, [fieldsLength]);
+	const handleOnBlur = useCallback((idx: number) => (value: string) => {
+		handleSetValues(idx)(addTrailingZero(value));
+	}, []);
 
 	return (
-		<>
+		<div className='react-code-input--wrapper'>
 			{label && <div className='react-code-input--label'>{label}</div>}
 			<ReactCodeInputWrapper disabled={disabled}>
 				{values.map((val, idx) => (
 					<Fragment key={`react-code-input-time-${idx}`}>
-						<Input defaultValue='00' disabled={disabled} onlyNumeric
+						<Input onBlur={handleOnBlur(idx)} externalValue={val.value} placeholder='00' disabled={disabled}
+						       onlyNumeric
 						       onChange={handleSetValues(idx)}/>
 						{idx !== values.length - 1 && <span className='react-code-input--separator'>:</span>}
 					</Fragment>
 				))}
 			</ReactCodeInputWrapper>
-		</>
+			<ReactCodeInputTimeHints fields={fields}/>
+		</div>
 	);
 }
 

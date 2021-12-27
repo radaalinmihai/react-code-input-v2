@@ -1,6 +1,6 @@
 .react-code-input {
 	border: 1px solid #414042;
-	width: max-content;
+	width: 100%;
 	display: flex;
 	flex-direction: row;
 	align-items: flex-start;
@@ -9,6 +9,10 @@
 	overflow: hidden;
 	padding: .2rem .6rem;
 	color: #231F20;
+
+	&--wrapper {
+		width: max-content;
+	}
 
 	&--disabled {
 		background-color: #D1D3D4;
@@ -23,6 +27,20 @@
 
 	&--separator {
 		font-size: 1.3rem;
+		line-height: 1.1;
+		width: 0.7rem;
+		text-align: center;
+	}
+
+	&--hints {
+		line-height: 1.05;
+		display: flex;
+		justify-content: space-evenly;
+		align-items: center;
+
+		& span {
+			font-size: 0.7rem;
+		}
 	}
 
 	&--container {
@@ -32,7 +50,7 @@
 			border-style: none;
 			outline: none;
 			font-size: 1.3rem;
-			max-width: calc(10px + 1.3rem);
+			width: calc(10px + 1.3rem);
 
 			&::placeholder {
 				color: #6D6E71;
