@@ -1,5 +1,5 @@
 import Input from "../components/Input";
-import React, {Fragment, FunctionComponent, useCallback, useState} from "react";
+import React, {Fragment, FunctionComponent, useCallback, useEffect, useState} from "react";
 import ReactCodeInputWrapper from "../components/ReactCodeInputWrapper";
 import {IInputValue} from "../interfaces/InputTypes";
 import {addTrailingZero, createEmptyTimes} from "../utilities/helpers";
@@ -10,6 +10,7 @@ interface IProps {
 	label?: string;
 	fields?: IInputTimeFields;
 	disabled?: boolean;
+	onChange?: (time: number) => void;
 }
 
 const ReactCodeInputTime: FunctionComponent<IProps> = ({
@@ -19,7 +20,8 @@ const ReactCodeInputTime: FunctionComponent<IProps> = ({
 		[InputTimeTypes.MINUTES]: true,
 		[InputTimeTypes.SECONDS]: false,
 		[InputTimeTypes.MILLISECONDS]: false,
-	}
+	},
+	                                                       onChange
                                                        }) => {
 	const [values, setValues] = useState<IInputValue[]>(createEmptyTimes(fields));
 	const handleSetValues = useCallback((idx: number) => (value: string) => {
@@ -43,6 +45,18 @@ const ReactCodeInputTime: FunctionComponent<IProps> = ({
 	const handleOnBlur = useCallback((idx: number) => (value: string) => {
 		handleSetValues(idx)(addTrailingZero(value));
 	}, []);
+
+	useEffect(() => {
+		if(onChange) {
+			onChange(values.reduce((total, time) => {
+				const timeAsNumber = parseInt(time.value);
+				if(timeAsNumber) {
+					return total + timeAsNumber * time.convertValue;
+				}
+				return total;
+			}, 0));
+		}
+	}, [values]);
 
 	return (
 		<div className='react-code-input--wrapper'>

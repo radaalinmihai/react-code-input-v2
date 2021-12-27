@@ -5,7 +5,7 @@ import ReactCodeInputTime from "./modes/ReactCodeInputTime";
 
 const ReactCodeInputV2: FC = () => {
 	return (
-		<ReactCodeInputTime label='Duration'/>
+		<ReactCodeInputTime onChange={(time) => console.log("My best time:", time)} label='Duration'/>
 	);
 }
 

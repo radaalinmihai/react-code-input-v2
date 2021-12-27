@@ -22,4 +22,5 @@ export interface IInputValue {
 	type: InputTimeTypes;
 	value: string;
 	max: InputTimeMaxes | number;
+	convertValue: number;
 }

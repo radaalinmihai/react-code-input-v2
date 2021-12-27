@@ -8,9 +8,9 @@ interface IProps {
 const ReactCodeInputTimeHints: FunctionComponent<IProps> = ({fields}) => {
 	return (
 		<div className='react-code-input--hints'>
-			<span>days</span>
-			<span>hours</span>
-			<span>minutes</span>
+			{Object.entries(fields).map((field, idx) => field[1] && (
+				<span key={`field-hint-${idx}`}>{field[0]}</span>
+			))}
 		</div>
 	);
 }

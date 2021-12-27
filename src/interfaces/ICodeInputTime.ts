@@ -15,9 +15,9 @@ export enum InputTimeTypes {
 }
 
 export interface IInputTimeFields {
-	[InputTimeTypes.DAYS]: boolean;
-	[InputTimeTypes.HOURS]: boolean;
-	[InputTimeTypes.MINUTES]: boolean;
-	[InputTimeTypes.SECONDS]: boolean;
-	[InputTimeTypes.MILLISECONDS]: boolean;
+	DAYS?: boolean;
+	HOURS?: boolean;
+	MINUTES?: boolean;
+	SECONDS?: boolean;
+	MS?: boolean;
 }
