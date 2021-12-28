@@ -1,27 +1,51 @@
 {
-    "env": {
-        "browser": true,
-        "es2021": true
-    },
-    "extends": [
-        "eslint:recommended",
-        "plugin:react/recommended",
-        "plugin:@typescript-eslint/recommended",
-        "prettier"
-    ],
-    "parser": "@typescript-eslint/parser",
-    "parserOptions": {
-        "ecmaFeatures": {
-            "jsx": true
-        },
-        "ecmaVersion": 13,
-        "sourceType": "module"
-    },
-    "plugins": [
-        "react",
-        "@typescript-eslint"
-    ],
-    "rules": {
-        "react/react-in-jsx-scope": "off"
-    }
+	"env": {
+		"browser": true,
+		"es2021": true
+	},
+	"settings": {
+		"react": {
+			"version": "detect"
+		}
+	},
+	"extends": [
+		"eslint:recommended",
+		"plugin:react/recommended",
+		"plugin:react/jsx-runtime",
+		"plugin:@typescript-eslint/recommended",
+		"prettier"
+	],
+	"parser": "@typescript-eslint/parser",
+	"parserOptions": {
+		"ecmaFeatures": {
+			"jsx": true
+		},
+		"ecmaVersion": 13,
+		"sourceType": "module"
+	},
+	"plugins": [
+		"react",
+		"@typescript-eslint",
+		"prettier"
+	],
+	"root": true,
+	"rules": {
+		"react/react-in-jsx-scope": "off",
+		"newline-before-return": "warn",
+		"comma-style": [
+			"error",
+			"last"
+		],
+		"jsx-quotes": [
+			"error",
+			"prefer-double"
+		],
+		"sort-imports": [
+			"error",
+			{
+				"ignoreDeclarationSort": true
+			}
+		],
+		"prettier/prettier": "error"
+	}
 }

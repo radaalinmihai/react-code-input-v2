@@ -1,10 +1,10 @@
-import {InputTimeMaxes, InputTimeTypes} from "./ICodeInputTime";
+import { InputTimeMaxes, InputTimeTypes } from "./ICodeInputTime";
 
 export enum InputTypes {
-	TEXT = 'text',
-	NUM = 'num',
-	TEL = 'tel',
-	TIME = 'time',
+	TEXT = "text",
+	NUM = "num",
+	TEL = "tel",
+	TIME = "time",
 }
 
 export interface IInput {

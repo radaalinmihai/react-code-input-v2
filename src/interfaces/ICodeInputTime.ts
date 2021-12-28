@@ -3,7 +3,7 @@ export enum InputTimeMaxes {
 	MAX_SECONDS = 59,
 	MAX_MINUTES = 59,
 	MAX_HOURS = 23,
-	MAX_DAYS = 31
+	MAX_DAYS = 31,
 }
 
 export enum InputTimeTypes {
