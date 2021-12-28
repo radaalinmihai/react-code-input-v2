@@ -1,8 +1,9 @@
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const path = require("path");
 
 module.exports = {
-	mode: "development",
 	module: {
 		rules: [
 			{
@@ -33,10 +34,6 @@ module.exports = {
 	resolve: {
 		extensions: [".tsx", ".ts", ".js"],
 	},
-	devServer: {
-		port: 3000,
-		hot: true,
-	},
 	optimization: {
 		minimizer: [
 			new CssMinimizerPlugin({
@@ -54,5 +51,16 @@ module.exports = {
 		],
 		minimize: true
 	},
-	plugins: [new MiniCssExtractPlugin()]
+	plugins: [
+		new MiniCssExtractPlugin(),
+		new HtmlWebpackPlugin({
+			title: "React Code Input V2",
+			template: "/public/index.html",
+		}),
+	],
+	output: {
+		filename: "[name].bundle.js",
+		path: path.resolve(__dirname, "../dist"),
+		clean: true
+	},
 };
