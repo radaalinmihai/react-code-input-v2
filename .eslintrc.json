@@ -32,14 +32,6 @@
 	"rules": {
 		"react/react-in-jsx-scope": "off",
 		"newline-before-return": "warn",
-		"comma-style": [
-			"error",
-			"last"
-		],
-		"jsx-quotes": [
-			"error",
-			"prefer-double"
-		],
 		"sort-imports": [
 			"error",
 			{
