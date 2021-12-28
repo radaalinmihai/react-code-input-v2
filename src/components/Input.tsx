@@ -2,6 +2,7 @@ import { ChangeEventHandler, FocusEventHandler, FunctionComponent, useCallback, 
 import { IInput } from "@interfaces/InputTypes";
 import { NUMBER_REG } from "@utilities/constants";
 import { addTrailingZero } from "@utilities/helpers";
+import clsx from "clsx";
 
 const Input: FunctionComponent<IInput> = ({
 	onChange,
@@ -12,6 +13,7 @@ const Input: FunctionComponent<IInput> = ({
 	defaultValue = "",
 	externalValue,
 	onBlur,
+	className = "",
 }) => {
 	const [value, setValue] = useState("");
 	const handleOnChange = useCallback<ChangeEventHandler<HTMLInputElement>>(
@@ -59,7 +61,7 @@ const Input: FunctionComponent<IInput> = ({
 				value={externalValue || value}
 				maxLength={maxLength}
 				placeholder={placeholder}
-				className="react-code-input--container-digit"
+				className={clsx("react-code-input--container-digit", className)}
 				onChange={handleOnChange}
 				type="text"
 			/>

@@ -21,3 +21,16 @@ export interface IInputTimeFields {
 	SECONDS?: boolean;
 	MS?: boolean;
 }
+
+export interface IInputTimeDigitProps {
+	onChange: (value: string) => void;
+	value: string;
+}
+
+export interface IInputTimeHints {
+	DAYS?: string;
+	HOURS?: string;
+	MINUTES?: string;
+	SECONDS?: string;
+	MS?: string;
+}

@@ -16,6 +16,7 @@ export interface IInput {
 	disabled?: boolean;
 	defaultValue?: string;
 	externalValue?: string;
+	className?: string;
 }
 
 export interface IInputValue {
