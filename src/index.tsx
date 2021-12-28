@@ -1,7 +1,7 @@
 import React, {FC} from "react";
 import * as ReactDOM from "react-dom";
-import "./styles/global.css";
-import ReactCodeInputTime from "./modes/ReactCodeInputTime";
+import "@styles/global.css";
+import ReactCodeInputTime from "@modes/ReactCodeInputTime";
 
 const ReactCodeInputV2: FC = () => {
 	return (

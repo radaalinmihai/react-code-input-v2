@@ -1,10 +1,10 @@
-import Input from "../components/Input";
+import Input from "@components/Input";
 import React, {Fragment, FunctionComponent, useCallback, useEffect, useState} from "react";
-import ReactCodeInputWrapper from "../components/ReactCodeInputWrapper";
-import {IInputValue} from "../interfaces/InputTypes";
-import {addTrailingZero, createEmptyTimes} from "../utilities/helpers";
-import {IInputTimeFields, InputTimeTypes} from "../interfaces/ICodeInputTime";
-import ReactCodeInputTimeHints from "../components/ReactCodeInputTimeHints";
+import ReactCodeInputWrapper from "@components/ReactCodeInputWrapper";
+import {IInputValue} from "@interfaces/InputTypes";
+import {addTrailingZero, createEmptyTimes} from "@utilities/helpers";
+import {IInputTimeFields, InputTimeTypes} from "@interfaces/ICodeInputTime";
+import ReactCodeInputTimeHints from "@components/ReactCodeInputTimeHints";
 
 interface IProps {
 	label?: string;

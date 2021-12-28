@@ -1,4 +1,4 @@
-import {IInputTimeFields} from "../interfaces/ICodeInputTime";
+import {IInputTimeFields} from "@interfaces/ICodeInputTime";
 import {FunctionComponent} from "react";
 
 interface IProps {

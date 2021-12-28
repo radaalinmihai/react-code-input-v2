@@ -1,13 +1,18 @@
 {
-  "compilerOptions": {
-    "outDir": "./dist/",
-    "noImplicitAny": true,
-    "module": "es6",
-    "target": "es5",
-    "jsx": "react-jsx",
-    "allowJs": true,
-    "strict": true,
-    "moduleResolution": "node",
-    "allowSyntheticDefaultImports": true
-  }
+	"compilerOptions": {
+		"sourceMap": true,
+		"outDir": "./dist/",
+		"noImplicitAny": true,
+		"module": "es6",
+		"target": "es5",
+		"jsx": "react-jsx",
+		"allowJs": true,
+		"strict": true,
+		"moduleResolution": "node",
+		"allowSyntheticDefaultImports": true
+	},
+	"exclude": [
+		"node_modules"
+	],
+	"extends": "./tsconfig.paths.json"
 }

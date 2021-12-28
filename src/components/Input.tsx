@@ -1,7 +1,7 @@
 import {ChangeEventHandler, FocusEventHandler, FunctionComponent, useCallback, useEffect, useState} from "react";
-import {IInput} from "../interfaces/InputTypes";
-import {NUMBER_REG} from "../utilities/constants";
-import {addTrailingZero} from "../utilities/helpers";
+import {IInput} from "@interfaces/InputTypes";
+import {NUMBER_REG} from "@utilities/constants";
+import {addTrailingZero} from "@utilities/helpers";
 
 const Input: FunctionComponent<IInput> = ({
 	                                          onChange,

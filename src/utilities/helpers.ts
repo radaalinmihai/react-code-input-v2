@@ -1,6 +1,6 @@
 import {MAX_TIME_FIELDS} from "./constants";
-import {IInputValue} from "../interfaces/InputTypes";
-import {IInputTimeFields, InputTimeMaxes, InputTimeTypes} from "../interfaces/ICodeInputTime";
+import {IInputValue} from "@interfaces/InputTypes";
+import {IInputTimeFields, InputTimeMaxes, InputTimeTypes} from "@interfaces/ICodeInputTime";
 
 export const addTrailingZero = (value: string) => {
 	if(parseInt(value) < 10 && value.length === 1) {

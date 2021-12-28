@@ -32,6 +32,13 @@ module.exports = {
 			}],
 	},
 	resolve: {
+		alias: {
+			"@components": path.resolve(__dirname, "../src/components/"),
+			"@interfaces": path.resolve(__dirname, "../src/interfaces/"),
+			"@modes": path.resolve(__dirname, "../src/modes/"),
+			"@styles": path.resolve(__dirname, "../src/styles/"),
+			"@utilities": path.resolve(__dirname, "../src/utilities/"),
+		},
 		extensions: [".tsx", ".ts", ".js"],
 	},
 	optimization: {
@@ -55,7 +62,7 @@ module.exports = {
 		new MiniCssExtractPlugin(),
 		new HtmlWebpackPlugin({
 			title: "React Code Input V2",
-			template: "/public/index.html",
+			template: "./public/index.html",
 		}),
 	],
 	output: {
