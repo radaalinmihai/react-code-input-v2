@@ -1,11 +1,11 @@
 import Input from "@components/Input";
 import { Fragment, FunctionComponent, useCallback, useEffect, useMemo, useState } from "react";
-import ReactCodeInputWrapper from "@components/ReactCodeInputWrapper";
 import { IInputValue } from "@interfaces/InputTypes";
 import { addTrailingZero, createEmptyTimes } from "@utilities/helpers";
 import { IInputTimeDigitProps, IInputTimeFields, IInputTimeHints, InputTimeTypes } from "@interfaces/ICodeInputTime";
 import ReactCodeInputTimeHints from "@components/ReactCodeInputTimeHints";
 import clsx from "clsx";
+import ReactCodeInputWrapper from "@components/ReactCodeInputWrapper";
 
 interface IProps {
 	label?: string;
@@ -98,6 +98,7 @@ const ReactCodeInputTime: FunctionComponent<IProps> = ({
 		(value: string, idx: number) => {
 			return (
 				<Input
+					maxLength={2}
 					className={digitClassNames}
 					onBlur={handleOnBlur(idx)}
 					externalValue={value}
@@ -142,7 +143,7 @@ const ReactCodeInputTime: FunctionComponent<IProps> = ({
 	}, []);
 
 	return (
-		<div className={clsx("react-code-input--wrapper", containerClassNames)}>
+		<div className={clsx("react-code-input--time", containerClassNames)}>
 			{label && <div className="react-code-input--label">{label}</div>}
 			<ReactCodeInputWrapper className={inputContainerClassNames} disabled={disabled}>
 				{values.map((val, idx) => (

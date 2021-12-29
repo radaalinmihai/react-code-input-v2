@@ -59,14 +59,16 @@ module.exports = {
 		minimize: true
 	},
 	plugins: [
-		new MiniCssExtractPlugin(),
+		new MiniCssExtractPlugin({
+			filename: "react-code-input-v2.css"
+		}),
 		new HtmlWebpackPlugin({
 			title: "React Code Input V2",
 			template: "./public/index.html",
 		}),
 	],
 	output: {
-		filename: "[name].bundle.js",
+		filename: "index.js",
 		path: path.resolve(__dirname, "../dist"),
 		clean: true
 	},

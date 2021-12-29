@@ -10,8 +10,45 @@
 	padding: .2rem .6rem;
 	color: #231F20;
 
-	&--wrapper {
+	&--time {
 		width: max-content;
+
+		.react-code-input--container {
+			&-digit {
+				border-style: none;
+				outline: none;
+				font-size: 1.3rem;
+				width: calc(10px + 1.3rem);
+
+				&::placeholder {
+					color: #6D6E71;
+				}
+
+				&:disabled {
+					background-color: #D1D3D4;
+					pointer-events: none;
+					cursor: not-allowed;
+				}
+			}
+		}
+	}
+
+	&--num {
+		max-width: max-content;
+
+		.react-code-input {
+			&--container {
+				width: 100%;
+
+				&-digit {
+					border-radius: 6px;
+					color: #231F20;
+					font-size: 1.3rem;
+					border: 1px solid #414042;
+					padding: .2rem .6rem;
+				}
+			}
+		}
 	}
 
 	&--disabled {
@@ -40,27 +77,6 @@
 
 		& span {
 			font-size: 0.7rem;
-		}
-	}
-
-	&--container {
-
-
-		&-digit {
-			border-style: none;
-			outline: none;
-			font-size: 1.3rem;
-			width: calc(10px + 1.3rem);
-
-			&::placeholder {
-				color: #6D6E71;
-			}
-
-			&:disabled {
-				background-color: #D1D3D4;
-				pointer-events: none;
-				cursor: not-allowed;
-			}
 		}
 	}
 }
